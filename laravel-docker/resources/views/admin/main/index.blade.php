@@ -185,7 +185,7 @@
                                     <!-- /.direct-chat-infos -->
                                     <img
                                         class="direct-chat-img"
-                                        src="./assets/img/user1-128x128.jpg"
+                                        src="{{ asset('img/user1-128x128.jpg') }}"
                                         alt="message user image" />
                                     <!-- /.direct-chat-img -->
                                     <div class="direct-chat-text">
@@ -203,7 +203,7 @@
                                     <!-- /.direct-chat-infos -->
                                     <img
                                         class="direct-chat-img"
-                                        src="./assets/img/user3-128x128.jpg"
+                                        src="{{ asset('img/user3-128x128.jpg') }}"
                                         alt="message user image" />
                                     <!-- /.direct-chat-img -->
                                     <div class="direct-chat-text">You better believe it!</div>
