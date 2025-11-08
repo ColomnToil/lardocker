@@ -8,7 +8,7 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Dashboard</h3>
+                    <h3 class="mb-0">{{ $category->title }}</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
@@ -34,31 +34,18 @@
                         <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-2">Добавить</a>
                     </div>
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <div class="card-tools">
-                                <ul class="pagination pagination-sm float-end">
-                                    {{ $categories->withQueryString()->links() }}
-                                </ul>
-                            </div>
-                        </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <table class="table" role="table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10px" scope="col">ID</th>
-                                        <th scope="col">Название</th>
-                                        <th scope="col">Действие</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
                                     <tr class="align-middle">
+                                        <td>ID</td>
                                         <td>{{ $category->id }}</td>
-                                        <td>{{ $category->title }}</td>
-                                        <td><a class="text-black" href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
                                     </tr>
-                                    @endforeach
+                                    <tr class="align-middle">
+                                        <td>Название</td>
+                                        <td>{{ $category->title }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
