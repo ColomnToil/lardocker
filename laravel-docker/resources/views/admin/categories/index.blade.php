@@ -56,7 +56,8 @@
                                     <tr class="align-middle">
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->title }}</td>
-                                        <td><a class="text-black" href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
+                                        <td><a class="text-primary" href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
+                                        <td><a class="text-success" href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon bi bi-pen"></i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

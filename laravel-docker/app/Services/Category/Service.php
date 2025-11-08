@@ -23,7 +23,7 @@ class Service
     {
         try {
             DB::beginTransaction();
-            $category->firstOrUpdate($data);
+            $category->update($data);
             DB::commit();
         } catch (\Exception $exeption) {
             DB::rollBack();

@@ -7,8 +7,9 @@
         <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-                <div class="col-sm-6">
-                    <h3 class="mb-0">{{ $category->title }}</h3>
+                <div class="col-sm-6 d-flex">
+                    <h3 class="mb-0 me-3">{{ $category->title }}</h3>
+                    <a class="text-success" href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon bi bi-pen"></i></a>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
@@ -29,7 +30,8 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-12">
-                    <h5>Категории</h5>
+
+
                     <div class="col-12">
                         <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-2">Добавить</a>
                     </div>
