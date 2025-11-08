@@ -48,7 +48,7 @@
                                     <tr>
                                         <th style="width: 10px" scope="col">ID</th>
                                         <th scope="col">Название</th>
-                                        <th scope="col">Действие</th>
+                                        <th colspan="3" scope="col" class="text-center">Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,6 +58,13 @@
                                         <td>{{ $category->title }}</td>
                                         <td><a class="text-primary" href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
                                         <td><a class="text-success" href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon bi bi-pen"></i></a></td>
+                                        <td>
+                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="bg-transparent border-0 text-danger" type="submit"><i class="nav-icon bi bi-trash"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

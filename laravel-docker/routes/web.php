@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Category\StoreController as AdminCategoryStoreCon
 use App\Http\Controllers\Admin\Category\ShowController as AdminCategoryShowController;
 use App\Http\Controllers\Admin\Category\EditController as AdminCategoryEditController;
 use App\Http\Controllers\Admin\Category\UpdateController as AdminCategoryUpdateController;
+use App\Http\Controllers\Admin\Category\DeleteController as AdminCategoryDeleteController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
@@ -24,6 +25,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::get('/{category}', [AdminCategoryShowController::class, '__invoke'])->name('admin.category.show');
             Route::get('/{category}/edit', [AdminCategoryEditController::class, '__invoke'])->name('admin.category.edit');
             Route::patch('/{category}', [AdminCategoryUpdateController::class, '__invoke'])->name('admin.category.update');
+            Route::delete('/{category}', [AdminCategoryDeleteController::class, '__invoke'])->name('admin.category.delete');
         });
     });
 });

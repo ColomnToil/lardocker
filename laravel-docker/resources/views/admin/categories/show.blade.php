@@ -9,7 +9,12 @@
             <div class="row">
                 <div class="col-sm-6 d-flex">
                     <h3 class="mb-0 me-3">{{ $category->title }}</h3>
-                    <a class="text-success" href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon bi bi-pen"></i></a>
+                    <a class="text-success me-3" href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon bi bi-pen"></i></a>
+                    <form action="{{ route('admin.category.delete', $category->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="bg-transparent border-0 text-danger" type="submit"><i class="nav-icon bi bi-trash"></i></button>
+                    </form>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
