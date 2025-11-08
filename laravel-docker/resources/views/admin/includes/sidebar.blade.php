@@ -10,7 +10,7 @@
             data-accordion="false"
             id="navigation">
             <li class="nav-item">
-                <a href="./docs/browser-support.html" class="nav-link">
+                <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon bi bi-star-half"></i>
                     <p>Категории</p>
                 </a>

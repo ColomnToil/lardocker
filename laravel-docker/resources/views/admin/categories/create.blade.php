@@ -29,12 +29,24 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-2">Добавить</a>
-                </div>
-                <div class="col-12">
-                    Категории
-                </div>
+                    <h6 class="mb-3">Добавление категории</h6>
 
+                    <form action="{{ route('admin.category.store') }}" method="post" class="col-4 w-25">
+                        @csrf
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Название</label>
+                                <input type="text" name="title" class="form-control" id="" aria-describedby="">
+                                @error('title')
+                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <!--end::Row-->
             <!--begin::Row-->
