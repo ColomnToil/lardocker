@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends Model
 {
-    protected $table = 'tag';
+    protected $table = 'tags';
     protected $guarded = false;
+    use SoftDeletes;
 }

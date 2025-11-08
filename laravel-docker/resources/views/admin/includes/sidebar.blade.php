@@ -11,8 +11,14 @@
             id="navigation">
             <li class="nav-item">
                 <a href="{{ route('admin.category.index') }}" class="nav-link">
-                    <i class="nav-icon bi bi-star-half"></i>
+                    <i class="nav-icon bi bi-list"></i>
                     <p>Категории</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                    <i class="nav-icon bi bi-tags"></i>
+                    <p>Теги</p>
                 </a>
             </li>
         </ul>
