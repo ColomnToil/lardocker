@@ -29,10 +29,39 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-2">Добавить</a>
-                </div>
-                <div class="col-12">
-                    Категории
+                    <h5>Категории</h5>
+                    <div class="col-12">
+                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-2">Добавить</a>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <ul class="pagination pagination-sm float-end">
+                                    {{ $categories->withQueryString()->links() }}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <table class="table" role="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px" scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($categories as $category)
+                                    <tr class="align-middle">
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->title }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
 
             </div>
