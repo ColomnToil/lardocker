@@ -62,6 +62,16 @@
         href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
         crossorigin="anonymous" />
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -281,7 +291,7 @@
             </div>
             <!--end::Sidebar Brand-->
             @include('admin.includes.sidebar')
-            @yield('content')
+            
         </aside>
         <!--end::Sidebar-->
         <!--begin::App Main-->
@@ -510,6 +520,7 @@
         const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
         sparkline3.render();
     </script>
+
     <!--end::Script-->
 </body>
 <!--end::Body-->

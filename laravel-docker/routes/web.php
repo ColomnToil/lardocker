@@ -19,6 +19,14 @@ use App\Http\Controllers\Admin\Tag\EditController as AdminTagEditController;
 use App\Http\Controllers\Admin\Tag\UpdateController as AdminTagUpdateController;
 use App\Http\Controllers\Admin\Tag\DeleteController as AdminTagDeleteController;
 
+use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController;
+use App\Http\Controllers\Admin\Post\CreateController as AdminPostCreateController;
+use App\Http\Controllers\Admin\Post\StoreController as AdminPostStoreController;
+use App\Http\Controllers\Admin\Post\ShowController as AdminPostShowController;
+use App\Http\Controllers\Admin\Post\EditController as AdminPostEditController;
+use App\Http\Controllers\Admin\Post\UpdateController as AdminPostUpdateController;
+use App\Http\Controllers\Admin\Post\DeleteController as AdminPostDeleteController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
@@ -45,6 +53,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::get('/{tag}/edit', [AdminTagEditController::class, '__invoke'])->name('admin.tag.edit');
             Route::patch('/{tag}', [AdminTagUpdateController::class, '__invoke'])->name('admin.tag.update');
             Route::delete('/{tag}', [AdminTagDeleteController::class, '__invoke'])->name('admin.tag.delete');
+        });
+        Route::group(['namespace' => 'Category', 'prefix' => 'posts'], function () {
+            Route::get('/', [AdminPostIndexController::class, '__invoke'])->name('admin.post.index');
+            Route::get('/create', [AdminPostCreateController::class, '__invoke'])->name('admin.post.create');
+            Route::post('/', [AdminPostStoreController::class, '__invoke'])->name('admin.post.store');
+            Route::get('/{post}', [AdminPostShowController::class, '__invoke'])->name('admin.post.show');
+            Route::get('/{post}/edit', [AdminPostEditController::class, '__invoke'])->name('admin.post.edit');
+            Route::patch('/{post}', [AdminPostUpdateController::class, '__invoke'])->name('admin.post.update');
+            Route::delete('/{post}', [AdminPostDeleteController::class, '__invoke'])->name('admin.post.delete');
         });
     });
 });
