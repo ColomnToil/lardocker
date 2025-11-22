@@ -77,13 +77,13 @@ class Service
         return $category->id;
     }
 
-    public function  update($post, $data, $tags, $category)
+    public function  update($post, $data, $tagIds)
     {
         try {
             DB::beginTransaction();
-            $tagIds = $this->getTagIdsWithUpdate($tags);
+            // $tagIds = $this->getTagIdsWithUpdate($tags);
 
-            $data['category_id'] = $this->getCategoryIdWithUpdate($category);
+            // $data['category_id'] = $this->getCategoryIdWithUpdate($category);
 
             $post->update($data);
             $post->tags()->sync($tagIds);
