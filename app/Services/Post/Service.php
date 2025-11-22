@@ -9,15 +9,16 @@ use Illuminate\Support\Facades\DB;
 
 class Service
 {
-    public function  store($data, $tags, $category)
+    // public function  store($data, $tags, $category)
+    public function  store($data)
     {
         try {
             DB::beginTransaction();
-            $tagIds = $this->getTagIds($tags);
-            $data['category_id'] = $this->getCategoryId($category);
+            // $tagIds = $this->getTagIds($tags);
+            // $data['category_id'] = $this->getCategoryId($category);
 
             $post = Post::create($data);
-            $post->tags()->attach($tagIds);
+            // $post->tags()->attach($tagIds);
 
             DB::commit();
         } catch (\Exception $exeption) {

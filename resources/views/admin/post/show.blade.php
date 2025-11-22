@@ -53,6 +53,10 @@
                                         <td>Название</td>
                                         <td>{{ $post->title }}</td>
                                     </tr>
+                                    <tr class="align-middle">
+                                        <td>Описание</td>
+                                        <td>{{ $post->content }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

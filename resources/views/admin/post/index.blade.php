@@ -48,6 +48,7 @@
                                     <tr>
                                         <th style="width: 10px" scope="col">ID</th>
                                         <th scope="col">Название</th>
+                                        <th scope="col">Описание</th>
                                         <th colspan="3" scope="col" class="text-center">Действия</th>
                                     </tr>
                                 </thead>
@@ -56,6 +57,7 @@
                                     <tr class="align-middle">
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->title }}</td>
+                                        <td>{{ $post->content }}</td>
                                         <td><a class="text-primary" href="{{ route('admin.post.show', $post->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
                                         <td><a class="text-success" href="{{ route('admin.post.edit', $post->id) }}"><i class="nav-icon bi bi-pen"></i></a></td>
                                         <td>

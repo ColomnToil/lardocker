@@ -35,15 +35,18 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="" class="form-label">Название</label>
-                                <input type="text" name="title" class="form-control w-25" id="" aria-describedby="">
+                                <input type="text" name="title" class="form-control w-25" id="" aria-describedby="" value="{{ old('title') }}">
                                 @error('title')
                                 <div class="text-danger">Это поле необходимо к заполнению</div>
                                 @enderror
                             </div>
                             <div class="form-group w-100">
-                                <form method="post">
-                                    <textarea id="summernote" name="content"></textarea>
-                                </form>
+                                <!-- <form method="post"> -->
+                                <textarea id="summernote" name="content">{{ old('content') }}</textarea>
+                                @error('content')
+                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @enderror
+                                <!-- </form> -->
 
                             </div>
                         </div>
@@ -63,7 +66,17 @@
     <!--end::App Content-->
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote();
+            $('#summernote').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
         });
     </script>
 </main>
