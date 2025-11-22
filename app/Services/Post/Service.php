@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Service
 {
     // public function  store($data, $tags, $category)
-    public function  store($data)
+    public function  store($data, $tagIds)
     {
         try {
             DB::beginTransaction();
@@ -18,7 +18,7 @@ class Service
             // $data['category_id'] = $this->getCategoryId($category);
 
             $post = Post::create($data);
-            // $post->tags()->attach($tagIds);
+            $post->tags()->attach($tagIds);
 
             DB::commit();
         } catch (\Exception $exeption) {

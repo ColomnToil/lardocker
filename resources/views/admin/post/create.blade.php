@@ -67,6 +67,18 @@
                                 <div class="text-danger">Это поле необходимо к заполнению</div>
                                 @enderror
                             </div>
+                            <div class="input-group mb-3 w-100">
+                                <label for="" class="form-label">Теги</label>
+                                <select class="form-select w-25 select2" name="tag_ids[]" id="" multiple="multiple" data-placeholder="Выберите теги">
+                                    @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}"
+                                        {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}>{{ $tag->title }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tag_ids[]')
+                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Добавить</button>
@@ -101,6 +113,8 @@
         $(function() {
             bsCustomFileInput.init();
         })
+
+        $('.select2').select2()
     </script>
 </main>
 
