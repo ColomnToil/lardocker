@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-12">
                     <h6 class="mb-3">Добавление поста</h6>
-                    <form action="{{ route('admin.post.store') }}" method="post" class="">
+                    <form action="{{ route('admin.post.store') }}" method="post" class="" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="mb-3">
@@ -41,13 +41,19 @@
                                 @enderror
                             </div>
                             <div class="form-group w-100">
-                                <!-- <form method="post"> -->
+                                <label for="" class="form-label">Описание</label>
                                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                                 @error('content')
                                 <div class="text-danger">Это поле необходимо к заполнению</div>
                                 @enderror
-                                <!-- </form> -->
-
+                            </div>
+                            <div class="input-group mb-3">
+                                <label for="" class="form-label">Превью</label>
+                                <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="inputGroupFile02">
+                            </div>
+                            <div class="input-group mb-3">
+                                <label for="" class="form-label">Главное изображение</label>
+                                <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="inputGroupFile02">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -64,6 +70,7 @@
         <!--end::Container-->
     </div>
     <!--end::App Content-->
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
@@ -78,6 +85,10 @@
                 ]
             });
         });
+
+        $(function() {
+            bsCustomFileInput.init();
+        })
     </script>
 </main>
 
