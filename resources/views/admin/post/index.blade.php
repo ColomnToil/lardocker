@@ -58,6 +58,7 @@
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->content }}</td>
+                                        <td>{{ $categories-> }}</td>
                                         <td><a class="text-primary" href="{{ route('admin.post.show', $post->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
                                         <td><a class="text-success" href="{{ route('admin.post.edit', $post->id) }}"><i class="nav-icon bi bi-pen"></i></a></td>
                                         <td>

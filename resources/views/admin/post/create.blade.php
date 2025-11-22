@@ -49,11 +49,23 @@
                             </div>
                             <div class="input-group mb-3">
                                 <label for="" class="form-label">Превью</label>
-                                <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="inputGroupFile02">
+                                <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="">
                             </div>
                             <div class="input-group mb-3">
                                 <label for="" class="form-label">Главное изображение</label>
-                                <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="inputGroupFile02">
+                                <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="">
+                            </div>
+                            <div class="input-group mb-3 w-100">
+                                <label for="" class="form-label">Категории</label>
+                                <select class="form-select w-25" name="category_id" id="">
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ $category->id == old('category_id') ? ' selected' : ''}}>{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="card-footer">
