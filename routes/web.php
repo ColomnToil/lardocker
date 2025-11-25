@@ -27,6 +27,14 @@ use App\Http\Controllers\Admin\Post\EditController as AdminPostEditController;
 use App\Http\Controllers\Admin\Post\UpdateController as AdminPostUpdateController;
 use App\Http\Controllers\Admin\Post\DeleteController as AdminPostDeleteController;
 
+use App\Http\Controllers\Admin\User\IndexController as AdminUserIndexController;
+use App\Http\Controllers\Admin\User\CreateController as AdminUserCreateController;
+use App\Http\Controllers\Admin\User\StoreController as AdminUserStoreController;
+use App\Http\Controllers\Admin\User\ShowController as AdminUserShowController;
+use App\Http\Controllers\Admin\User\EditController as AdminUserEditController;
+use App\Http\Controllers\Admin\User\UpdateController as AdminUserUpdateController;
+use App\Http\Controllers\Admin\User\DeleteController as AdminUserDeleteController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
@@ -45,7 +53,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::patch('/{category}', [AdminCategoryUpdateController::class, '__invoke'])->name('admin.category.update');
             Route::delete('/{category}', [AdminCategoryDeleteController::class, '__invoke'])->name('admin.category.delete');
         });
-        Route::group(['namespace' => 'Category', 'prefix' => 'tags'], function () {
+        Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
             Route::get('/', [AdminTagIndexController::class, '__invoke'])->name('admin.tag.index');
             Route::get('/create', [AdminTagCreateController::class, '__invoke'])->name('admin.tag.create');
             Route::post('/', [AdminTagStoreController::class, '__invoke'])->name('admin.tag.store');
@@ -54,7 +62,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::patch('/{tag}', [AdminTagUpdateController::class, '__invoke'])->name('admin.tag.update');
             Route::delete('/{tag}', [AdminTagDeleteController::class, '__invoke'])->name('admin.tag.delete');
         });
-        Route::group(['namespace' => 'Category', 'prefix' => 'posts'], function () {
+        Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
             Route::get('/', [AdminPostIndexController::class, '__invoke'])->name('admin.post.index');
             Route::get('/create', [AdminPostCreateController::class, '__invoke'])->name('admin.post.create');
             Route::post('/', [AdminPostStoreController::class, '__invoke'])->name('admin.post.store');
@@ -62,6 +70,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::get('/{post}/edit', [AdminPostEditController::class, '__invoke'])->name('admin.post.edit');
             Route::patch('/{post}', [AdminPostUpdateController::class, '__invoke'])->name('admin.post.update');
             Route::delete('/{post}', [AdminPostDeleteController::class, '__invoke'])->name('admin.post.delete');
+        });
+        Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+            Route::get('/', [AdminUserIndexController::class, '__invoke'])->name('admin.user.index');
+            Route::get('/create', [AdminUserCreateController::class, '__invoke'])->name('admin.user.create');
+            Route::post('/', [AdminUserStoreController::class, '__invoke'])->name('admin.user.store');
+            Route::get('/{user}', [AdminUserShowController::class, '__invoke'])->name('admin.user.show');
+            Route::get('/{user}/edit', [AdminUserEditController::class, '__invoke'])->name('admin.user.edit');
+            Route::patch('/{user}', [AdminUserUpdateController::class, '__invoke'])->name('admin.user.update');
+            Route::delete('/{user}', [AdminUserDeleteController::class, '__invoke'])->name('admin.user.delete');
         });
     });
 });

@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Requests\Admin\User;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'name' => 'required|string',
+            'content' => 'required|string',
+            'preview_image' => 'required|file',
+            'main_image' => 'required|file',
+            'category_id' => 'required|integer|exists:categories,id',
+            'tag_ids' => 'nullable|array',
+            'tag_ids.*' => 'nullable|integer|exists:tags,id'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Это поле необходимо к заполнению',
+            'name.string' => 'Данные должны быть сточного типа',
+
+            'content.required' => 'Это поле необходимо к заполнению',
+            'content.string' => 'Данные должны быть сточного типа',
+
+            'preview_image.required' => 'Это поле необходимо к заполнению',
+            'preview_image.file' => 'Данные должны быть изображением',
+
+            'main_image.required' => 'Это поле необходимо к заполнению',
+            'main_image.file' => 'Данные должны быть изображением',
+
+            'category_id.required' => 'Это поле необходимо к заполнению',
+            'category_id.integer' => 'Данные должны быть числом',
+            'category_id.exists' => 'Id должен быть в базе данных',
+
+            'tag_ids.array' => 'Данные должны быть массивом',
+        ];
+    }
+}
