@@ -12,7 +12,21 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, SoftDeletes;
+
     protected $table = 'users';
+
+
+    const ROLE_READER = 0;
+    const ROLE_ADMIN = 1;
+
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_READER => 'Читатель',
+            self::ROLE_ADMIN => 'Админ',
+        ];
+    }
+
 
 
     /**
@@ -24,6 +38,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
