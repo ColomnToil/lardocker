@@ -37,23 +37,29 @@
                                 <label for="" class="form-label">Название</label>
                                 <input type="text" name="title" class="form-control w-25" id="" aria-describedby="" value="{{ old('title') }}">
                                 @error('title')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-100">
                                 <label for="" class="form-label">Описание</label>
                                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                                 @error('content')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="input-group mb-3">
                                 <label for="" class="form-label">Превью</label>
                                 <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="">
+                                @error('preview_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="input-group mb-3">
                                 <label for="" class="form-label">Главное изображение</label>
                                 <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="">
+                                @error('main_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="input-group mb-3 w-100">
                                 <label for="" class="form-label">Категории</label>
@@ -64,7 +70,7 @@
                                     @endforeach
                                 </select>
                                 @error('category_id')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="input-group mb-3 w-100">
@@ -75,8 +81,8 @@
                                         {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}>{{ $tag->title }}</option>
                                     @endforeach
                                 </select>
-                                @error('tag_ids[]')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @error('tag_ids')
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

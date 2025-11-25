@@ -38,14 +38,14 @@
                                 <label for="" class="form-label">Название</label>
                                 <input type="text" name="title" class="form-control" id="" aria-describedby="" value="{{ $post->title }}">
                                 @error('title')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-100">
                                 <label for="" class="form-label">Описание</label>
                                 <textarea id="summernote" name="content">{{ $post->content }}</textarea>
                                 @error('content')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="input-group mb-3">
@@ -54,6 +54,9 @@
                                     <img style="width:128px" src="{{ asset('storage/'.$post->preview_image) }}" alt="">
                                 </div>
                                 <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="">
+                                @error('preview_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="input-group mb-3">
                                 <label for="" class="form-label">Главное изображение</label>
@@ -61,6 +64,9 @@
                                     <img style="width:156px" src="{{ asset('storage/'.$post->main_image) }}" alt="">
                                 </div>
                                 <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="">
+                                @error('main_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="input-group mb-3 w-100">
                                 <label for="" class="form-label">Категории</label>
@@ -71,7 +77,7 @@
                                     @endforeach
                                 </select>
                                 @error('category_id')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="input-group mb-3 w-100">
@@ -82,8 +88,8 @@
                                         {{ is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? ' selected' : ''}}>{{ $tag->title }}</option>
                                     @endforeach
                                 </select>
-                                @error('tag_ids[]')
-                                <div class="text-danger">Это поле необходимо к заполнению</div>
+                                @error('tag_ids')
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

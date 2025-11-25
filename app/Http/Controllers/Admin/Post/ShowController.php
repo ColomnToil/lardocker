@@ -14,6 +14,7 @@ class ShowController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
+        
         return view('admin.post.show', compact('post', 'categories', 'tags'));
     }
 }

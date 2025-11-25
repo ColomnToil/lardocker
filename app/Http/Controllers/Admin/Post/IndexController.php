@@ -15,6 +15,7 @@ class IndexController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $posts = Post::paginate(10);
+        
         return view('admin.post.index', compact('posts', 'categories', 'tags'));
     }
 }
