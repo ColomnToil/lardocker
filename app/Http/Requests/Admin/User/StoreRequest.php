@@ -23,12 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'content' => 'required|string',
-            'preview_image' => 'required|file',
-            'main_image' => 'required|file',
-            'category_id' => 'required|integer|exists:categories,id',
-            'tag_ids' => 'nullable|array',
-            'tag_ids.*' => 'nullable|integer|exists:tags,id'
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string'
         ];
     }
 
@@ -38,20 +34,12 @@ class StoreRequest extends FormRequest
             'name.required' => 'Это поле необходимо к заполнению',
             'name.string' => 'Данные должны быть сточного типа',
 
-            'content.required' => 'Это поле необходимо к заполнению',
-            'content.string' => 'Данные должны быть сточного типа',
+            'email.required' => 'Это поле необходимо к заполнению',
+            'email.string' => 'Данные должны быть сточного типа',
+            'email.unique' => 'Пользователь с таким email уже существует',
 
-            'preview_image.required' => 'Это поле необходимо к заполнению',
-            'preview_image.file' => 'Данные должны быть изображением',
-
-            'main_image.required' => 'Это поле необходимо к заполнению',
-            'main_image.file' => 'Данные должны быть изображением',
-
-            'category_id.required' => 'Это поле необходимо к заполнению',
-            'category_id.integer' => 'Данные должны быть числом',
-            'category_id.exists' => 'Id должен быть в базе данных',
-
-            'tag_ids.array' => 'Данные должны быть массивом',
+            'password.required' => 'Это поле необходимо к заполнению',
+            'password.string' => 'Данные должны быть изображением',
         ];
     }
 }

@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class Service
 {
-    public function  store($data, $tagIds)
+    public function  store($data)
     {
         try {
             DB::beginTransaction();
 
-            $post = Post::create($data);
-            $tagIds ? $post->tags()->attach($tagIds) : false;
+            $user = User::firstOrCreate(['email' => $data['email']], $data);
 
             DB::commit();
         } catch (\Exception $exeption) {
@@ -24,13 +23,12 @@ class Service
         }
     }
 
-    public function  update($post, $data, $tagIds)
+    public function  update($user, $data)
     {
         try {
             DB::beginTransaction();
 
-            $post->update($data);
-            $tagIds ? $post->tags()->sync($tagIds) : false;
+            $user->update($data);
 
             DB::commit();
         } catch (\Exception $exeption) {

@@ -34,54 +34,23 @@
                         @csrf
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="" class="form-label">Название</label>
+                                <label for="" class="form-label">Имя</label>
                                 <input type="text" name="name" class="form-control w-25" id="" aria-describedby="" value="{{ old('name') }}">
                                 @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group w-100">
-                                <label for="" class="form-label">Описание</label>
-                                <textarea id="summernote" name="content">{{ old('content') }}</textarea>
-                                @error('content')
+                            <div class="mb-3">
+                                <label for="" class="form-label">Эл.почта</label>
+                                <input type="email" name="email" class="form-control w-25" id="" aria-describedby="" value="{{ old('email') }}">
+                                @error('email')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="input-group mb-3">
-                                <label for="" class="form-label">Превью</label>
-                                <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="">
-                                @error('preview_image')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3">
-                                <label for="" class="form-label">Главное изображение</label>
-                                <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="">
-                                @error('main_image')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3 w-100">
-                                <label for="" class="form-label">Категории</label>
-                                <select class="form-select w-25" name="category_id" id="">
-                                    @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ $category->id == old('category_id') ? ' selected' : ''}}>{{ $category->title }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3 w-100">
-                                <label for="" class="form-label">Теги</label>
-                                <select class="form-select w-25 select2" name="tag_ids[]" id="" multiple="multiple" data-placeholder="Выберите теги">
-                                    @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id }}"
-                                        {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}>{{ $tag->title }}</option>
-                                    @endforeach
-                                </select>
-                                @error('tag_ids')
+                            <div class="mb-3">
+                                <label for="" class="form-label">Пароль</label>
+                                <input type="password" name="password" class="form-control w-25" id="" aria-describedby="" value="{{ old('password') }}">
+                                @error('password')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

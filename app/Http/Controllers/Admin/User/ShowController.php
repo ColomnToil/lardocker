@@ -10,8 +10,6 @@ class ShowController extends Controller
 {
     public function __invoke(User $user)
     {
-        $users = User::all();
-        
-        return view('admin.user.show', compact('users'));
+        return view('admin.user.show', compact('user'));
     }
 }

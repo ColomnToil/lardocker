@@ -35,60 +35,16 @@
                         @method('patch')
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="" class="form-label">Название</label>
+                                <label for="" class="form-label">Имя</label>
                                 <input type="text" name="name" class="form-control" id="" aria-describedby="" value="{{ $user->name }}">
                                 @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-100">
-                                <label for="" class="form-label">Описание</label>
-                                <textarea id="summernote" name="content">{{ $user->content }}</textarea>
-                                @error('content')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3">
-                                <label for="" class="form-label">Превью</label>
-                                <div class="mb-3">
-                                    <img style="width:128px" src="{{ asset('storage/'.$user->preview_image) }}" alt="">
-                                </div>
-                                <input type="file" name="preview_image" class="form-control custom-file-input custom-file" id="">
-                                @error('preview_image')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3">
-                                <label for="" class="form-label">Главное изображение</label>
-                                <div class="mb-3">
-                                    <img style="width:156px" src="{{ asset('storage/'.$user->main_image) }}" alt="">
-                                </div>
-                                <input type="file" name="main_image" class="form-control custom-file-input custom-file" id="">
-                                @error('main_image')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3 w-100">
-                                <label for="" class="form-label">Категории</label>
-                                <select class="form-select w-25" name="category_id" id="">
-                                    @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ $category->id == $user->category_id ? ' selected' : ''}}>{{ $category->title }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="input-group mb-3 w-100">
-                                <label for="" class="form-label">Теги</label>
-                                <select class="form-select w-25 select2" name="tag_ids[]" id="" multiple="multiple" data-placeholder="Выберите теги">
-                                    @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id }}"
-                                        {{ is_array($user->tags->pluck('id')->toArray()) && in_array($tag->id, $user->tags->pluck('id')->toArray()) ? ' selected' : ''}}>{{ $tag->title }}</option>
-                                    @endforeach
-                                </select>
-                                @error('tag_ids')
+                                <label for="" class="form-label">Эл.почта</label>
+                                <input type="email" name="email" class="form-control" id="" aria-describedby="" value="{{ $user->email }}">
+                                @error('email')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

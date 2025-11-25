@@ -23,12 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'content' => 'required|string',
-            'preview_image' => 'nullable|file',
-            'main_image' => 'nullable|file',
-            'category_id' => 'required|integer|exists:categories,id',
-            'tag_ids' => 'nullable|array',
-            'tag_ids.*' => 'nullable|integer|exists:tags,id'
+            'email' => 'required|string|email|unique:users'
         ];
     }
 
@@ -38,18 +33,9 @@ class UpdateRequest extends FormRequest
             'name.required' => 'Это поле необходимо к заполнению',
             'name.string' => 'Данные должны быть сточного типа',
 
-            'content.required' => 'Это поле необходимо к заполнению',
-            'content.string' => 'Данные должны быть сточного типа',
-
-            'preview_image.file' => 'Данные должны быть изображением',
-
-            'main_image.file' => 'Данные должны быть изображением',
-
-            'category_id.required' => 'Это поле необходимо к заполнению',
-            'category_id.integer' => 'Данные должны быть числом',
-            'category_id.exists' => 'Id должен быть в базе данных',
-
-            'tag_ids.array' => 'Данные должны быть массивом',
+            'email.required' => 'Это поле необходимо к заполнению',
+            'email.string' => 'Данные должны быть сточного типа',
+            'email.unique' => 'Пользователь с таким email уже существует',
         ];
     }
 }

@@ -8,7 +8,7 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6 d-flex">
-                    <h3 class="mb-0 me-3">{{ $user->title }}</h3>
+                    <h3 class="mb-0 me-3">{{ $user->name }}</h3>
                     <a class="text-success me-3" href="{{ route('admin.user.edit', $user->id) }}"><i class="nav-icon bi bi-pen"></i></a>
                     <form action="{{ route('admin.user.delete', $user->id) }}" method="post">
                         @csrf
@@ -50,12 +50,12 @@
                                         <td>{{ $user->id }}</td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>Название</td>
-                                        <td>{{ $user->title }}</td>
+                                        <td>Имя</td>
+                                        <td>{{ $user->name }}</td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>Описание</td>
-                                        <td>{{ $user->content }}</td>
+                                        <td>Эл.почта</td>
+                                        <td>{{ $user->email }}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -11,7 +11,7 @@ class Service
     {
         try {
             DB::beginTransaction();
-            Tag::firstOrCreate($data);
+            Tag::firstOrCreate(['title' => $data['title']], $data);
             DB::commit();
         } catch (\Exception $exeption) {
             DB::rollBack();

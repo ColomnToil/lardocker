@@ -47,8 +47,8 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px" scope="col">ID</th>
-                                        <th scope="col">Название</th>
-                                        <th scope="col">Описание</th>
+                                        <th scope="col">Имя</th>
+                                        <th scope="col">Эл.почта</th>
                                         <th colspan="3" scope="col" class="text-center">Действия</th>
                                     </tr>
                                 </thead>
@@ -56,8 +56,8 @@
                                     @foreach ($users as $user)
                                     <tr class="align-middle">
                                         <td>{{ $user->id }}</td>
-                                        <td>{{ $user->title }}</td>
-                                        <td>{{ $user->content }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
                                         
                                         <td><a class="text-primary" href="{{ route('admin.user.show', $user->id) }}"><i class="nav-icon bi bi-eye"></i></a></td>
                                         <td><a class="text-success" href="{{ route('admin.user.edit', $user->id) }}"><i class="nav-icon bi bi-pen"></i></a></td>
