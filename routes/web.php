@@ -35,13 +35,23 @@ use App\Http\Controllers\Admin\User\EditController as AdminUserEditController;
 use App\Http\Controllers\Admin\User\UpdateController as AdminUserUpdateController;
 use App\Http\Controllers\Admin\User\DeleteController as AdminUserDeleteController;
 
+use App\Http\Middleware\AdminMiddleware;
+use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\Session\Middleware\StartSession;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('main.index');
 });
-
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::namespace('Admin')->prefix('admin')->group(function () {
+// Route::middleware([AdminMiddleware::class])->group(function () {
+    // Route::group([
+    // 'middleware' => [StartSession::class, 'web', 'auth.session', 'auth', 'admin'],
+    // 'namespace' => 'Admin',
+    // 'prefix' => 'admin'
+    // ], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', [AdminIndexController::class, '__invoke'])->name('admin.main.index');
         Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
